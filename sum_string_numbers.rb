@@ -16,6 +16,12 @@ def run_tests
 
   raise "Test failed: Empty string" unless sum_string_numbers("") == 0
   puts "Test passed: Empty string"
+
+  raise "Test failed: Single number '1'" unless sum_string_numbers("1") == 1
+  puts "Test passed: Single number '1'"
+
+  raise "Test failed: Multiple numbers '1,2,3'" unless sum_string_numbers("1,2,3") == 6
+  puts "Test passed: Multiple numbers '1,2,3'"
 end
 
 run_tests
