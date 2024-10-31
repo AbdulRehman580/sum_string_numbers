@@ -3,7 +3,7 @@
 def sum_string_numbers(input)
   return 0 if input.empty?
 
-  input.split(",").map do |num|
+  input.split(/,|\n/).map do |num|
     Integer(num.strip)
   end.sum
 rescue ArgumentError
@@ -22,6 +22,9 @@ def run_tests
 
   raise "Test failed: Multiple numbers '1,2,3'" unless sum_string_numbers("1,2,3") == 6
   puts "Test passed: Multiple numbers '1,2,3'"
+
+  raise "Test failed: Numbers with new lines '1\n2, 3'" unless sum_string_numbers("1\n2, 3") == 6
+  puts "Test passed: Numbers new lines '1\n2, 3'"
 end
 
 run_tests
